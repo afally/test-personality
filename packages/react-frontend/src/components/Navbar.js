@@ -19,9 +19,11 @@ export default function Navbar() {
 
   return (
     <>
-      <MDBNavbar expand="lg" dark bgColor="primary">
+      <MDBNavbar expand="lg" dark bgColor="primary" className="navbar">
         <MDBContainer fluid>
-          <MDBNavbarBrand href="#">Personality Test</MDBNavbarBrand>
+          <MDBNavbarBrand href="#" style={{ fontSize: "30px" }}>
+            HowWeWork
+          </MDBNavbarBrand>
           <MDBNavbarToggler
             type="button"
             className="red-text"
@@ -29,38 +31,32 @@ export default function Navbar() {
             aria-controls="navbarColor02"
             aria-expanded="false"
             aria-label="Toggle navigation"
-            style={{ marginRight: "50px", color: "white" }}
-            onClick={() => setShowNavColor(!showNavColor)}
+            style={{
+              marginRight: "50px",
+              color: "white",
+              backgroundColor: "white",
+            }}
+            onClick={() => {
+              setShowNavColor(!showNavColor);
+            }}
           >
             <MDBIcon icon="bars" fas />
           </MDBNavbarToggler>
           <MDBCollapse show={showNavColor} navbar>
             <MDBNavbarNav className="me-auto mb-2 mb-lg-0">
               <MDBNavbarItem className="active">
-                <Link
-                  to="./"
-                  style={{
-                    textDecoration: "none",
-                    color: "white",
-                    transition: "color 0.3s ease",
-                  }}
+                <MDBNavbarLink
+                  aria-current="page"
+                  href="/"
+                  style={{ fontSize: "20px" }}
                 >
                   Home
-                </Link>
+                </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <Link
-                  to="./question"
-                  className="primary-button"
-                  style={{
-                    fontSize: "15px",
-                    color: "black",
-                    textDecoration: "none",
-                    alignItems: "center",
-                  }}
-                >
-                  Start Quiz
-                </Link>
+                <MDBNavbarLink href="/question" style={{ fontSize: "20px" }}>
+                  Tests
+                </MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </MDBCollapse>

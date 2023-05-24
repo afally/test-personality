@@ -204,7 +204,7 @@ const Questionpage = () => {
           }}
           className="btn btn-primary btn-lg"
         >
-          Start Now
+          Personality-Test
         </button>
         {renderedQuestionArray}
         <div

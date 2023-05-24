@@ -10,6 +10,6 @@ test("The response would be rendered", () => {
       <Navbar />
     </BrowserRouter>
   );
-  const linkElement = screen.getByText(/Start Quiz/i);
+  const linkElement = screen.getByText(/Home/i);
   expect(linkElement).toBeInTheDocument();
 });

@@ -38,16 +38,17 @@ function LandingFrameMessage() {
         Discover Yourself
       </h1>
       <h4 className="mb-3 text-center text-black" style={{ fontSize: "4vh" }}>
-        Introvert or Extrovert Personality Test
+        Are you an introvert or Extrovert?
       </h4>
-
-      <Link
-        className="btn btn-primary btn-lg"
-        to="./question"
-        style={{ color: "white", textDecoration: "none" }}
-      >
-        Start Quiz
-      </Link>
+      <button className="btn btn-primary btn-lg">
+        <Link
+          className="btn btn-primary btn-lg"
+          to="./question"
+          style={{ color: "white", textDecoration: "none" }}
+        >
+          Explore Tests
+        </Link>
+      </button>
     </div>
   );
 }

@@ -21,15 +21,15 @@ export const Answer = () => {
   };
   const [answer, setAnswer] = useState("");
 
-  //function scrollToTestDiv(){
-  //const divElement = document.getElementById('answer');
-  //divElement.scrollIntoView({ behavior: 'smooth' });
-  // }
+  function scrollToTestDiv() {
+    const divElement = document.getElementById("answer");
+    divElement.scrollIntoView({ block: "end" });
+  }
 
   useEffect(() => {
     setAnswer(result());
 
-    //scrollToTestDiv()
+    scrollToTestDiv();
   }, []);
 
   return (

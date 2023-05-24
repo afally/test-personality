@@ -507,4 +507,14 @@ nav {
   div.example {
     font-size: 30px;
   }
+
+  .navbar-brand {
+    margin-bottom: 20px;
+  }
+  .navbar-toggler {
+    margin-right: 20px;
+  }
+  .navbar-item {
+    margin-bottom: 10px;
+  }
 }
