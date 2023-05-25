@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-
+simpersonality/packages/express-backend/config/keys.js
 # testing
 /coverage
 
@@ -12,7 +12,6 @@
 /build
 
 # misc
-/packages/express-backend/config/
 .DS_Store
 .env.local
 .env.development.local
