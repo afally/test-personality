@@ -1,8 +1,9 @@
 function loadExtrovertCountFromLocalStorage() {
-  const serializedState = localStorage.getItem('extrovert');
-  if(serializedState === null)
-    {return 0;}
-    return JSON.parse(serializedState);
+  const serializedState = localStorage.getItem("extrovert");
+  if (serializedState === null) {
+    return 0;
+  }
+  return JSON.parse(serializedState);
 }
 
-export default loadExtrovertCountFromLocalStorage
+export default loadExtrovertCountFromLocalStorage;

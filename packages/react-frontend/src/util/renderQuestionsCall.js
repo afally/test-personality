@@ -1,23 +1,21 @@
-import axios from 'axios'
+import axios from "axios";
 
 async function renderQuestionsCall() {
   let downloaded;
-  const result = await axios.get(`http://localhost:3001/api/questions/`)
-     .then(res=>{
-             downloaded = res.data.data;
-             if(downloaded){
-              return downloaded.question
-              console.log("here")
-              console.log(downloaded.question)
-             }
-             //return downloaded.question;
-       
+  const result = await axios
+    .get(`http://localhost:3001/api/questions/`)
+    .then((res) => {
+      downloaded = res.data.data;
+      if (downloaded) {
+        return downloaded.question;
+        console.log("here");
+        console.log(downloaded.question);
+      }
+      //return downloaded.question;
     })
-    .catch(error => console.log(error));
+    .catch((error) => console.log(error));
 
-    console.log(result)
-  }
-  
+  console.log(result);
+}
 
-
-export default renderQuestionsCall
+export default renderQuestionsCall;

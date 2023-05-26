@@ -1,6 +1,6 @@
-function saveIntrovertCountToLocalStorage(state){
+function saveIntrovertCountToLocalStorage(state) {
   const serializedState = JSON.stringify(state);
-  localStorage.setItem('introvert', serializedState);
-  }
+  localStorage.setItem("introvert", serializedState);
+}
 
-export default saveIntrovertCountToLocalStorage
+export default saveIntrovertCountToLocalStorage;
