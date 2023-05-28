@@ -18,6 +18,8 @@ const result = () => {
     //setAnwser('You are an Introvert')
   } else {
     console.log("Retry test");
+    console.log(extrocount);
+    console.log(introcount);
     return "Retry test";
   }
 

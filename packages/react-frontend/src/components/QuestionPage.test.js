@@ -7,6 +7,8 @@ import { rest } from "msw";
 import { setupServer } from "msw/node";
 import { act } from "react-dom/test-utils";
 
+//mock data for the test
+
 const server = setupServer(
   rest.get("http://localhost:3001/api/questions/", (req, res, ctx) =>
     res(
@@ -61,8 +63,6 @@ afterAll(() => {
   server.close();
 });
 
-//mock data for the test
-
 test("The questions are rendered", async () => {
   render(
     <BrowserRouter>
@@ -71,15 +71,15 @@ test("The questions are rendered", async () => {
   );
 
   // Find the button element
-  const button = screen.getByText("Start Now");
+  const button = screen.getByText("Personality-Test");
 
   // Simulate a button click to trigger the axios call
   fireEvent.click(button);
 
   // Wait for the questions to be rendered
-  await act(async () => {
-    await new Promise((resolve) => setTimeout(resolve, 1000)); // Wait for questions to be rendered
-  });
+  //await act(async () => {
+    //await new Promise((resolve) => setTimeout(resolve, 1000));
+  //});
 
   const questions = screen.getAllByTestId("question");
 
@@ -87,6 +87,3 @@ test("The questions are rendered", async () => {
 
   expect(questions).toHaveLength(3);
 });
-
-//Test that the component is sending the right number of questions based on the questions
-//className

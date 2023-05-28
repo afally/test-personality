@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import Footer from "./Footer.js";
 
-test("The response would be rendered", () => {
+test("Useful links in footer would be rendered", () => {
   render(
     <BrowserRouter>
       <Footer />

@@ -52,6 +52,7 @@ const Questionpage = () => {
     backgroundPosition: "center",
   };
 
+  //To render questions from backend
   const renderQuestions = () => {
     localStorage.clear();
 
@@ -62,12 +63,6 @@ const Questionpage = () => {
         setQuestion(downloaded.question);
       })
       .catch((error) => console.log(error));
-
-    //if (downloaded) {
-    //console.log(downloaded.question);
-    //setQuestion(downloaded.question);
-    //console.log(question);
-    //}
 
     setTimeout(() => {
       document.getElementById("hideDiv").style.display = "block";

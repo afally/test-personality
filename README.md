@@ -4,7 +4,7 @@ A simple personality test application
 
 ## Description
 
-The application is used to discover someone's personality. 
+The application is used to discover someone's personality.
 
 Frontend: ReactJS with Material UI
 Backend: Expressjs
@@ -13,48 +13,48 @@ Backend: Expressjs
 
 ### Dependencies
 
-Contained in package.json file 
+Contained in package.json file
 
 Built With
 
 #### React
-#### Node
-#### MongoDB
-#### Express
 
+#### Node
+
+#### MongoDB
+
+#### Express
 
 ### Installing
 
 Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services.
 
-
 #### Clone the repo
+
 #### Install NPM packages
+
 #### npm install
+
 #### Enter your API in config.js
 
-
 ### Executing program
-
 
 ```
 lerna run --parallel start
 ```
 
-
 ## Authors
 
 Contributors names and contact info
 
-ex. Ayo Folami 
+ex. Ayo Folami
 
 ## Version History
 
-* 0.2
-    * Various bug fixes and optimizations
-   
-* 0.1
-    * Initial Release
+- 0.2
+  - Various bug fixes and optimizations
+- 0.1
+  - Initial Release
 
 ## License
 

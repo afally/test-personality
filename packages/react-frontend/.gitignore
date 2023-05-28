@@ -2,9 +2,7 @@
 
 # dependencies
 /node_modules
-/.pnp
-.pnp.js
-simpersonality/packages/express-backend/config/keys.js
+
 # testing
 /coverage
 

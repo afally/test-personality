@@ -7,7 +7,7 @@ const Question = require("../../Models/Question");
 
 router.get("/", async (req, res) => {
   try {
-    const question = await Question.find();
+    const question = await Question.find().sort({ number: 1 });
 
     if (!question) {
       return res.status(404).json({
@@ -113,9 +113,6 @@ router.put("/updatequestion/:questionId", (req, res) => {
   const { questionId } = req.params;
   const { question, optiona, optionb, optionc, optiond } = req.body;
 
-  console.log(req.params);
-  console.log(req.body);
-
   Question.findOneAndUpdate(
     questionId,
     { question, optiona, optionb, optionc, optiond },
@@ -135,12 +132,25 @@ router.put("/updatequestion/:questionId", (req, res) => {
 
 //DELETE
 
-router.delete("/:id", (req, res) => {
-  Question.findOneAndDelete(req.params.id) //we would get id from the URL
-    .then((deletedquestion) => {
-      console.log(deletedquestion);
+router.delete("/:questionId", (req, res) => {
+  const { questionId } = req.params;
+  Question.findOneAndDelete({ number: questionId }) //we would get id from the URL
+    .then((deletedQuestion) => {
+      if (!deletedQuestion) {
+        return res.status(404).json({
+          status: "error",
+          message: "Question not found",
+        });
+      }
+
+      return res.status(200).json({
+        status: "success",
+        data: {
+          deletedQuestion,
+        },
+      });
     })
-    .catch((err) => res.status(404).json(json({ success: false })));
+    .catch((err) => res.status(404).json({ success: false }));
 });
 
 module.exports = router;

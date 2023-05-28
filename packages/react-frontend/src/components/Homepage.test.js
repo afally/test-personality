@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import HomePage from "./HomePage.js";
 
-test("The response would be rendered", () => {
+test("The discover headline would be rendered", () => {
   render(
     <BrowserRouter>
       <HomePage />

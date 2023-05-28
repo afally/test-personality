@@ -2,7 +2,6 @@ const path = require("path");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-var crypto = require("crypto");
 
 const dotenv = require("dotenv");
 dotenv.config();
@@ -17,7 +16,7 @@ mongoose.set("useUnifiedTopology", true);
 // calling body-parser to handle the Request Object from POST requests
 var bodyParser = require("body-parser");
 const Questions = require("./Models/Question");
-const passport = require("passport");
+
 const questions = require("./routes/api/questions");
 
 const app = express();
@@ -39,9 +38,9 @@ app.use(function (req, res, next) {
 });
 
 //DB Config
-const db = require("./config/keys").mongoURI;
+const db = process.env.MONGO_URI;
+console.log(`Connected to database with URI -  ${db}`);
 
-//Connect to Mongo
 mongoose
   .connect(db, { useNewUrlParser: true })
   .then(() => console.log("MongoDB connected..."))

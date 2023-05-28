@@ -12,6 +12,8 @@ import {
   MDBCollapse,
 } from "mdb-react-ui-kit";
 
+//Navbar
+
 export default function Navbar() {
   const [showNavColor, setShowNavColor] = useState(false);
   const [showNavColorSecond, setShowNavColorSecond] = useState(false);
@@ -65,4 +67,3 @@ export default function Navbar() {
     </>
   );
 }
-//export default Navbar
