@@ -31,8 +31,8 @@ const Questionpage = () => {
   const [questionNumber, setQuestionNumber] = useState(1);
   const [question, setQuestion] = useState([]);
   const [options, setoptions] = useState({});
-  const [extrovert, setExtrovert] = useState(0);
-  const [introvert, setIntrovert] = useState(0);
+  const [extrovert, setExtrovert] = useState(1);
+  const [introvert, setIntrovert] = useState(1);
   const [isActive, setIsActive] = useState(false);
 
   const style = {
@@ -71,9 +71,11 @@ const Questionpage = () => {
 
   const handleButtonClick = (option, count, questionIndex) => {
     if (option === "a" || option === "b") {
-      setExtrovert((prevCount) => prevCount + count);
+      setExtrovert((prevExtroverts) => prevExtroverts + count);
+      console.log([option, count, questionIndex, extrovert]);
     } else if (option === "c" || option === "d") {
-      setIntrovert((prevCount) => prevCount + count);
+      setIntrovert((prevIntrovert) => prevIntrovert + count);
+      console.log([option, count, questionIndex, introvert]);
     }
 
     setQuestion((prevQuestions) => {
@@ -110,8 +112,10 @@ const Questionpage = () => {
                     : "primary-button"
                 }
                 onClick={() => {
-                  handleButtonClick("a", 1, index);
-                  saveExtrovertCountToLocalStorage(extrovert);
+                  if (!item.selectedOption) {
+                    handleButtonClick("a", 1, index);
+                    saveExtrovertCountToLocalStorage(extrovert);
+                  }
                 }}
               >
                 a
@@ -126,8 +130,10 @@ const Questionpage = () => {
                     : "primary-button"
                 }
                 onClick={() => {
-                  handleButtonClick("b", 1, index);
-                  saveExtrovertCountToLocalStorage(extrovert);
+                  if (!item.selectedOption) {
+                    handleButtonClick("b", 1, index);
+                    saveExtrovertCountToLocalStorage(extrovert);
+                  }
                 }}
               >
                 b
@@ -142,8 +148,10 @@ const Questionpage = () => {
                     : "primary-button"
                 }
                 onClick={() => {
-                  handleButtonClick("c", 1, index);
-                  saveIntrovertCountToLocalStorage(introvert);
+                  if (!item.selectedOption) {
+                    handleButtonClick("c", 1, index);
+                    saveIntrovertCountToLocalStorage(introvert);
+                  }
                 }}
               >
                 c
@@ -158,8 +166,10 @@ const Questionpage = () => {
                     : "primary-button"
                 }
                 onClick={() => {
-                  handleButtonClick("d", 1, index);
-                  saveIntrovertCountToLocalStorage(introvert);
+                  if (!item.selectedOption) {
+                    handleButtonClick("d", 1, index);
+                    saveIntrovertCountToLocalStorage(introvert);
+                  }
                 }}
               >
                 d
