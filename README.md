@@ -39,7 +39,7 @@ Below is an example of how you can instruct your audience on installing and sett
 
 Input Mongo_URI as an environment variable.
 
-## run the code below in the terminal to run the application
+Run the command below in the terminal to run the application (frontend and backend application simultaneously)
 
 ```
 lerna run --parallel start
