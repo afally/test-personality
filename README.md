@@ -39,13 +39,13 @@ Below is an example of how you can instruct your audience on installing and sett
 
 Input Mongo_URI as an environment variable.
 
-# run the code below in the terminal to run the application
+## run the code below in the terminal to run the application
 
 ```
 lerna run --parallel start
 ```
 
-# To run the Docker application (Backend only)
+## To run the docker application (Backend only)
 
 navigate to the express-backend directory
 
@@ -64,6 +64,10 @@ To stop the containers
 ```
 docker-compose stop
 ```
+
+## Postman Collection
+
+Find the postman collection in the documentation folder in the backend directory
 
 ## Authors
 
