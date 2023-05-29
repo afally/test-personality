@@ -35,12 +35,34 @@ Below is an example of how you can instruct your audience on installing and sett
 
 #### npm install
 
-#### Enter your API in config.js
-
 ### Executing program
+
+Input Mongo_URI as an environment variable.
+
+# run the code below in the terminal to run the application
 
 ```
 lerna run --parallel start
+```
+
+# To run the Docker application (Backend only)
+
+navigate to the express-backend directory
+
+cd express-backend
+
+```
+docker-compose build
+```
+
+```
+docker-compose up
+```
+
+To stop the containers
+
+```
+docker-compose stop
 ```
 
 ## Authors
@@ -48,16 +70,3 @@ lerna run --parallel start
 Contributors names and contact info
 
 ex. Ayo Folami
-
-## Version History
-
-- 0.2
-  - Various bug fixes and optimizations
-- 0.1
-  - Initial Release
-
-## License
-
-Distributed under the MIT License. See LICENSE.txt for more information.
-
-## Acknowledgments
