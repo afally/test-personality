@@ -18,28 +18,46 @@ export default function Footer() {
         </div>
 
         <div>
-          <a href="" className="me-4 text-reset text-white">
+          <a
+            href="https://www.facebook.com/your-facebook-page"
+            className="me-4 text-reset text-white"
+          >
             <MDBIcon color="secondary" fab icon="facebook-f" />
           </a>
-          <a href="" className="me-4 text-reset text-white">
+          <a
+            href="https://www.facebook.com/your-facebook-page"
+            className="me-4 text-reset text-white"
+          >
             <MDBIcon color="secondary" fab icon="twitter" />
           </a>
-          <a href="" className="me-4 text-reset text-white">
+          <a
+            href="https://www.facebook.com/your-facebook-page"
+            className="me-4 text-reset text-white"
+          >
             <MDBIcon color="secondary" fab icon="google" />
           </a>
-          <a href="" className="me-4 text-reset text-white">
+          <a
+            href="https://www.facebook.com/your-facebook-page"
+            className="me-4 text-reset text-white"
+          >
             <MDBIcon color="secondary" fab icon="instagram" />
           </a>
-          <a href="" className="me-4 text-reset text-white">
+          <a
+            href="https://www.facebook.com/your-facebook-page"
+            className="me-4 text-reset text-white"
+          >
             <MDBIcon color="secondary" fab icon="linkedin" />
           </a>
-          <a href="" className="me-4 text-reset text-white">
+          <a
+            href="https://www.facebook.com/your-facebook-page"
+            className="me-4 text-reset text-white"
+          >
             <MDBIcon color="secondary" fab icon="github" />
           </a>
         </div>
       </section>
 
-      <section className="">
+      <section>
         <MDBContainer className="text-center text-md-start mt-5 text-white">
           <MDBRow className="mt-3">
             <MDBCol md="3" lg="4" xl="3" className="mx-auto mb-4">
@@ -72,7 +90,10 @@ export default function Footer() {
                 </a>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <a
+                  href="https://www.facebook.com/your-facebook-page"
+                  className="text-reset"
+                >
                   Personality test 2.0
                 </a>
               </p>

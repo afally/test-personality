@@ -1,156 +1,190 @@
-const express = require("express");
+const express = require('express');
+
 const router = express.Router();
-const mongoose = require("mongoose");
-const Question = require("../../Models/Question");
+const Question = require('../../Models/Question');
 
-//api/questions
+// api/questions
 
-router.get("/", async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const question = await Question.find().sort({ number: 1 });
 
     if (!question) {
       return res.status(404).json({
-        status: "error",
-        message: "No Questions",
+        status: 'error',
+        message: 'No Questions',
       });
     }
 
-    res.status(200).json({
-      status: "success",
+    return res.status(200).json({
+      status: 'success',
       data: {
         question,
       },
     });
-  } catch (err) {
-    res.status(500).json({
-      status: "error",
-      message: "Something went wrong",
+  } catch {
+    return res.status(500).json({
+      status: 'error',
+      message: 'Something went wrong',
     });
   }
 });
 
-//API requesting for question
+// API requesting for question
 
-router.post("/question", (req, res) => {
-  const number = req.body.number;
+router.post('/question', (req, res) => {
+  const { number } = req.body;
 
   if (number) {
     Question.findOne({ number: req.body.number })
       .then((question) => {
         if (question) {
           return res.status(200).json({
-            status: "success",
+            status: 'success',
             data: {
               question,
             },
           });
         }
+        return res.status(404).json({
+          status: 'error',
+          message: 'Question not found',
+        });
       })
-      .catch((err) => console.log(err));
+      .catch(() => res.status(500).json({
+        status: 'error',
+        message: 'Something went wrong',
+      }));
   } else {
     return res.status(404).json({
-      status: "error",
-      message: "No number selected",
+      status: 'error',
+      message: 'No number selected',
     });
   }
+
+  return null;
 });
 
-//POST
+// POST
 
-router.post("/addquestion", (req, res) => {
+router.post('/addquestion', (req, res) => {
   const date = Date.now(); // yyyy-mm-dd.
-  const number = req.body.number;
+  const { number } = req.body;
   const questionz = req.body.question;
-  const name = req.body.name;
-  const optiona = req.body.optiona;
-  const optionb = req.body.optionb;
-  const optionc = req.body.optionc;
-  const optiond = req.body.optiond;
+  const { name } = req.body;
+  const { optiona } = req.body;
+  const { optionb } = req.body;
+  const { optionc } = req.body;
+  const { optiond } = req.body;
 
   if (questionz) {
     Question.findOne({ number: req.body.number })
       .then((question) => {
         if (question) {
-          return res.status(400).json({ question: "Question number exists" });
-        } else {
-          const newQuestion = new Question({
-            date: date,
-            number: number,
-            question: questionz,
-            name: name,
-            optiona: optiona,
-            optionb: optionb,
-            optionc: optionc,
-            optiond: optiond,
-          });
-          newQuestion
-            .save()
-
-            .then(
-              res.status(200).json({
-                status: "success",
-                data: {
-                  newQuestion,
-                },
-              })
-            )
-            .catch((err) => console.log(`error from router ${err}`));
+          return res.status(400).json({ question: 'Question number exists' });
         }
+        const newQuestion = new Question({
+          date,
+          number,
+          question: questionz,
+          name,
+          optiona,
+          optionb,
+          optionc,
+          optiond,
+        });
+        newQuestion
+          .save()
+
+          .then((savedQuestion) => res.status(200).json({
+            status: 'success',
+            data: {
+              savedQuestion,
+            },
+          }))
+          .catch(() => res.status(500).json({
+            status: 'error',
+            message: 'something went wrong',
+          }));
+        return null;
       })
-      .catch((err) => console.log(err));
+      .catch(() => {
+        res.status(500).json({
+          status: 'error',
+          message: 'something went wrong',
+        });
+      });
   } else {
     return res.status(404).json({
-      status: "error",
-      message: "Nos item selected",
+      status: 'error',
+      message: 'Nos item selected',
     });
   }
+  return null;
 });
 
-//UPDATE
+// UPDATE
 
-router.put("/updatequestion/:questionId", (req, res) => {
+router.put('/updatequestion/:questionId', (req, res) => {
   const { questionId } = req.params;
-  const { question, optiona, optionb, optionc, optiond } = req.body;
+  const {
+    question, optiona, optionb, optionc, optiond,
+  } = req.body;
 
   Question.findOneAndUpdate(
     questionId,
-    { question, optiona, optionb, optionc, optiond },
-    { new: true }
+    {
+      question,
+      optiona,
+      optionb,
+      optionc,
+      optiond,
+    },
+    { new: true },
   )
     .then((updatedQuestion) => {
       if (!updatedQuestion) {
-        return res.status(404).send({ error: "Question not found" });
+        return res.status(404).json({
+          status: 'error',
+          message: 'Question not found',
+        });
       }
-      res.send(updatedQuestion);
+      return res.status(200).json({
+        status: 'success',
+        data: {
+          updatedQuestion,
+        },
+      });
     })
-    .catch((error) => {
-      console.error(error);
-      res.status(500).send({ error: "Internal server error" });
+    .catch(() => {
+      res.status(500).send({
+        status: 'error',
+        message: 'something went wrong',
+      });
     });
 });
 
-//DELETE
+// DELETE
 
-router.delete("/:questionId", (req, res) => {
+router.delete('/:questionId', (req, res) => {
   const { questionId } = req.params;
-  Question.findOneAndDelete({ number: questionId }) //we would get id from the URL
+  Question.findOneAndDelete({ number: questionId }) // we would get id from the URL
     .then((deletedQuestion) => {
       if (!deletedQuestion) {
         return res.status(404).json({
-          status: "error",
-          message: "Question not found",
+          status: 'error',
+          message: 'Question not found',
         });
       }
 
       return res.status(200).json({
-        status: "success",
+        status: 'success',
         data: {
           deletedQuestion,
         },
       });
     })
-    .catch((err) => res.status(404).json({ success: false }));
+    .catch(() => res.status(404).json({ success: false }));
 });
 
 module.exports = router;

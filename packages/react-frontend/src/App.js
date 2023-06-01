@@ -1,13 +1,7 @@
-import React, { useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Redirect,
-} from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Layout from "./components/Layout";
 import HomePage from "./components/HomePage";
-import { useLocation } from "react-router-dom";
 import QuestionPage from "./components/QuestionPage";
 import Answer from "./components/Answer";
 

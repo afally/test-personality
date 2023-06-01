@@ -1,17 +1,5 @@
-import {
-  Button,
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
 import React from "react";
-import { NavLink, withRouter } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 //import QuestionPage from './QuestionPage.js //style="font-size:10vw;"'
 
@@ -49,22 +37,6 @@ function LandingFrameMessage() {
           Explore Tests
         </Link>
       </button>
-    </div>
-  );
-}
-
-function LandingFrame() {
-  const style = {
-    "background-image": `url("img/background.jpg")`,
-    "background-repeat": "no-repeat",
-    "background-size": "cover",
-    position: "absolute",
-    height: "100%",
-    width: "100%",
-  };
-  return (
-    <div style={style}>
-      <LandingFrameMessage />
     </div>
   );
 }

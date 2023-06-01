@@ -1,56 +1,21 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import {
-  Button,
-  Box,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
 import saveExtrovertCountToLocalStorage from "../util/saveExtrovertCountToLocalStorage";
 import saveIntrovertCountToLocalStorage from "../util/saveIntrovertCountToLocalStorage";
-import loadExtrovertCountFromLocalStorage from "../util/loadExtrovertCountFromLocalStorage";
-import loadIntrovertCountFromLocalStorage from "../util/loadIntrovertCountFromLocalStorage";
-import { styled } from "@mui/material/styles";
 import { MDBListGroup, MDBListGroupItem } from "mdb-react-ui-kit";
 import {
   MDBCard,
   MDBCardHeader,
   MDBCardBody,
   MDBCardTitle,
-  MDBCardText,
-  MDBBtn,
 } from "mdb-react-ui-kit";
 
 const Questionpage = () => {
-  const [questionNumber, setQuestionNumber] = useState(1);
   const [question, setQuestion] = useState([]);
-  const [options, setoptions] = useState({});
   const [extrovert, setExtrovert] = useState(1);
   const [introvert, setIntrovert] = useState(1);
-  const [isActive, setIsActive] = useState(false);
-
-  const style = {
-    margin: "auto",
-    //padding: "10% '20%' 20% 10%",
-    color: "white",
-    minHeight: "80vh",
-    position: "relative",
-    flex: "1",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "column",
-    backgroundImage:
-      "url(https://www.pexels.com/photo/defocused-image-of-lights-255379/)",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-  };
 
   //To render questions from backend
   const renderQuestions = () => {
@@ -85,17 +50,7 @@ const Questionpage = () => {
     });
   };
 
-  const StyledButton = styled(Button)`
-    &:active {
-      background-color: red;
-      /* Replace 'red' with your desired color */
-    }
-  `;
-
   let downloaded;
-
-  let extrocount = 0;
-  let introcount = 0;
 
   const renderedQuestionArray = question.map((item, index) => {
     return (

@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import "@testing-library/jest-dom/extend-expect";
 import QuestionPage from "./QuestionPage.js";
@@ -77,9 +77,9 @@ test("The questions are rendered", async () => {
   fireEvent.click(button);
 
   // Wait for the questions to be rendered
-  //await act(async () => {
-    //await new Promise((resolve) => setTimeout(resolve, 1000));
-  //});
+  await act(async () => {
+    await new Promise((resolve) => setTimeout(resolve, 1000));
+  });
 
   const questions = screen.getAllByTestId("question");
 

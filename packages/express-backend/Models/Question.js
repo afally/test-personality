@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-let questionSchema = new mongoose.Schema({
+const questionSchema = new mongoose.Schema({
   date: { type: String },
   number: { type: Number },
   question: { type: String },
@@ -11,4 +11,6 @@ let questionSchema = new mongoose.Schema({
   optiond: { type: String },
 });
 
-module.exports = Question = mongoose.model("question", questionSchema);
+// Assign the model to variable before exporting
+const Question = mongoose.model('question', questionSchema);
+module.exports = Question;

@@ -8,8 +8,6 @@ async function renderQuestionsCall() {
       downloaded = res.data.data;
       if (downloaded) {
         return downloaded.question;
-        console.log("here");
-        console.log(downloaded.question);
       }
       //return downloaded.question;
     })
