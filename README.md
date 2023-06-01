@@ -45,11 +45,11 @@ Run the command below in the terminal to run the application (frontend and backe
 lerna run --parallel start
 ```
 
-## To run the docker application (Backend only)
+## To run the docker application
 
-navigate to the express-backend directory
+navigate to the root directory
 
-cd express-backend
+cd simpersonality
 
 ```
 docker-compose build
