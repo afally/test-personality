@@ -6,9 +6,10 @@ jobs:
   super-lint:
     name: Lint code base
     runs-on: ubuntu-latest
+    container: node:16
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2.5.1
+        uses: actions/checkout@v2
 
       - name: Run Super-Linter
         uses: github/super-linter@v3
