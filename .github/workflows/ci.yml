@@ -1,4 +1,4 @@
-name: Super-Linter
+name: CI
 
 on: push
 
@@ -16,3 +16,21 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: master
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+  test:
+    name: Run Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 14
+
+      - name: Install Dependencies
+        run: npm install
+
+     - name: Run Tests
+        run: npm test
