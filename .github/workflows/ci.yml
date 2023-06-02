@@ -1,6 +1,9 @@
-name: ci
+name: CI
 
-on: push
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   super-lint:
@@ -14,8 +17,8 @@ jobs:
         uses: github/super-linter@v5
         env:
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   test:
     name: Run Tests
@@ -32,5 +35,5 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-     - name: Run Tests
+      - name: Run Tests
         run: npm test
