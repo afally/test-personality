@@ -32,11 +32,17 @@ jobs:
         with:
           node-version: 14
 
-      - name: Install Dependencies
+      - name: Install Dependencies(Frontend)
         run: npm install
+        working-directory: packages/react-frontend
 
-      - name: Build
-        run: npm run build
+      - name: Install Dependencies (Backend)
+        run: npm install
+        working-directory: packages/express-backend
 
-      - name: Run Tests
+      #- name: Build
+      #  run: npm run build
+
+      - name: Run Tests (Frontend)
         run: npm test
+        working-directory: packages/react-frontend
